@@ -1,20 +1,66 @@
-.card1, .card2, .card3, .card4, .card5, .card6{
-    height: 45vh;
-    background-color: #90a4ae;
-    width:95%;
-    margin: 2.5%;
-    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.14), 0 3px 7px 0 rgba(0,0,0,0.12), 0 5px 3px 0px rgba(0,0,0,0.2);
-    display: inline-block;
+.flip {
+    height: 220px;
+    width: 300px;
+}
+.flip img {
+    width: inherit;
+    height: inherit;
+}
+.flip .back {
+    font-family: 'Bellefair', serif;
+    position: relative;
+    height: inherit;
+    background: #2184cd;
+    color: #fff;
+    text-align: center;
+    font-size: 278%;
 }
 
-@media screen and (min-width: 570px){
-    .card1, .card2, .card3, .card4, .card5, .card6{
-        width: 44%;
+
+.card2, .card3, .card4, .card5{
+    display:block;
+    margin: 5% auto;
+}
+
+.imgbox{
+    height: auto;
+    width: inherit;
+}
+
+@media screen and (min-width: 768px){
+    .card2,.card4{
+        float: left;
+        margin-left: 10%;
+    }
+    .card3,.card5{
+        float: right;
+        margin-right: 10%;
+    }
+    .flip .back{
+        /*bottom: 20px;*/
     }
 }
 
-@media screen and (min-width: 995px) {
-    .card1, .card2, .card3, .card4, .card5, .card6{
-        width: 28%;
+@media screen and (min-width: 1208px) {
+    .card2, .card4, .card3, .card5 {
+        width: 250px;
+        display: inline-block;
+        float: none;
+        margin: 1.8%;
     }
+    .card2{
+        margin-left: 3.9%;
+}
+    .card5{
+        margin-right: 0;
+    }
+    }
+
+.dt{
+    position: absolute;
+    font-size: 200%;
+    bottom: 0%;
+    left: 60%;
+    font-family: 'Bellefair', serif;
+    color: white;
 }
