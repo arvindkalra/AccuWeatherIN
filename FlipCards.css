@@ -1,0 +1,20 @@
+.card1, .card2, .card3, .card4, .card5, .card6{
+    height: 45vh;
+    background-color: #90a4ae;
+    width:95%;
+    margin: 2.5%;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.14), 0 3px 7px 0 rgba(0,0,0,0.12), 0 5px 3px 0px rgba(0,0,0,0.2);
+    display: inline-block;
+}
+
+@media screen and (min-width: 570px){
+    .card1, .card2, .card3, .card4, .card5, .card6{
+        width: 44%;
+    }
+}
+
+@media screen and (min-width: 995px) {
+    .card1, .card2, .card3, .card4, .card5, .card6{
+        width: 28%;
+    }
+}
