@@ -1,9 +1,32 @@
 /**
  * Created by arvind on 3/7/17.
  */
-$(function () {
-    var out = $('#out');
-    $.ajax({url: "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=56e3159a16df4273aff81748170307&q=Patna&format=json&num_of_days=5&fx=yes", success: function(result){
+var initialised = false;
+initialising();
+function initialising() {
+    if(!initialised) {
+        startLoader();
+        search("New Delhi");
+        initialised = true;
+    }
+}
+
+window.onload = function (){
+
+    $(".flip").flip({
+        trigger: 'hover'
+    });
+
+    $("#sbtn").click(function () {
+        var input = $('#input').val();
+        startLoader();
+        search(input);
+    })
+}
+
+function search(input) {
+    var url = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=56e3159a16df4273aff81748170307&q="+input+"&format=json&num_of_days=5&fx=yes";
+    $.ajax({url:url, success: function(result){
         console.log(result);
         // $("#div1").html(result);
         var obj = result;
@@ -16,7 +39,7 @@ $(function () {
         $('#tclouds').text(curr.cloudcover);
         $('#twind').text(curr.windspeedKmph);
         $('#twindir').text(curr.winddirDegree);
-        $('#tdescription').text(curr.weatherDesc[0].value);
+        $('#tdescription').text(getCityName(curr.weatherDesc[0].value));
         $('.currimg').attr('src',getPicture(obj.data.weather[0].hourly));
 
         // Make days
@@ -57,19 +80,18 @@ $(function () {
         $('#max5').text(curobj.maxtempC);
 
         endLoader();
+
     }})
+}
 
-
-    $(function(){
-        $(".flip").flip({
-            trigger: 'hover'
-        });
-    });
-});
+function startLoader() {
+    $('#body').css({'display':'none'});
+    $(".loader").css({'display':'block'});
+}
 function endLoader() {
-        $('#body').css({'display':'block'});
-        $(".loader").css({'display':'none'});
-    };
+    $('#body').css({'display':'block'});
+    $(".loader").css({'display':'none'});
+};
 
 function getPicture(hourly) {
     var rain = 0;
@@ -153,3 +175,5 @@ function getMonth(num) {
             return "DEC";
     }
 }
+
+

@@ -35,7 +35,7 @@
 .currBox{
     position: relative;
     background-color: #90a4ae;
-    height: 90vh;
+    height: 95vh;
     width:95%;
     margin: 2.5%;
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.14), 0 3px 7px 0 rgba(0,0,0,0.12), 0 5px 3px 0px rgba(0,0,0,0.2);
@@ -59,7 +59,7 @@
 }
 .info{
     position: relative;
-    bottom: 50vh;
+    bottom: 55vh;
     z-index: 100;
     display: block;
 }
@@ -93,6 +93,7 @@
         display: inline-block;
     }
     .info{
+        bottom: 50vh;
         left:35%;
     }
 }
